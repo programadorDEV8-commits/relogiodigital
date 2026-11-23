@@ -1388,7 +1388,7 @@
         const body = await res.text();
         if (body.length > 16000) throw new Error("Resposta muito grande");
         const data = JSON.parse(body);
-        if (!data || typeof data !== "object" || !/^\\d+\\.\\d+\\.\\d+$/.test(String(data.versao || ""))) {
+        if (!data || typeof data !== "object" || !/^\d+\.\d+\.\d+$/.test(String(data.versao || ""))) {
           throw new Error("Manifesto inválido");
         }
         const compare = (a, b) => {
